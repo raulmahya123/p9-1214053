@@ -74,5 +74,20 @@ namespace p_1214053_madep.view
         {
    
         }
+
+        private void dataMasterBarangToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form6 frm6 = new Form6();
+            frm6.Show();
+            frm6.MdiParent = this;
+
+        }
+
+        private void dataTransaksiToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form7 frm7 = new Form7();
+            frm7.Show();
+            frm7.MdiParent = this;
+        }
     }
 }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace p_1214053_madep.controller
 {
-    internal class Nilai
+     class Nilai
     {
         Koneksi koneksi = new Koneksi();
 
@@ -19,16 +19,15 @@ namespace p_1214053_madep.controller
             try
             {
                 koneksi.OpenConnection();
-                koneksi.ExecuteQuery("INSERT INTO t_nilai  (matkul,kategori,npm,nilai) VALUES('" + nilai.Matkul + "', '" + nilai.Kategori + "','" + nilai.Npm + "','" + nilai.Nilai + "')");
+                koneksi.ExecuteQuery("INSERT INTO t_nilai(matkul, kategori, npm, nilai) VALUES('" + nilai.Matkul + "', '" +
+                nilai.Kategori + "','" + nilai.Npm + "','" + nilai.Nilai + "')");
                 status = true;
-                MessageBox.Show("Data berhasil ditambahkan", "Informasi",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Data berhasil ditambahkan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 koneksi.CloseConnection();
-
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return status;
         }
@@ -40,16 +39,16 @@ namespace p_1214053_madep.controller
             try
             {
                 koneksi.OpenConnection();
-                koneksi.ExecuteQuery("UPDATE t_nilai SET matkul='" + nilai.Matkul + "'," + "kategori='" + nilai.Kategori + "'," + "npm='" + nilai.Npm + "'," + "nilai='" + nilai.Nilai + "' WHERE id_nilai='" + id + "'");
+                koneksi.ExecuteQuery("UPDATE t_nilai SET matkul='" + nilai.Matkul + "'," +
+                "kategori='" + nilai.Kategori + "'," + "npm='" + nilai.Npm + "',"
+                + "nilai='" + nilai.Nilai + "' WHERE id_nilai='" + id + "'");
                 status = true;
-                MessageBox.Show("berasil di ubah", "Informasi",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Data berhasil diubah", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 koneksi.CloseConnection();
-
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return status;
         }
@@ -60,19 +59,32 @@ namespace p_1214053_madep.controller
             Boolean status = false;
             try
             {
-
                 koneksi.OpenConnection();
                 koneksi.ExecuteQuery("DELETE FROM t_nilai WHERE id_nilai='" + id + "'");
                 status = true;
-                MessageBox.Show("Data berasil di hapus", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Data berhasil dihapus", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 koneksi.CloseConnection();
-
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return status;
+        }
+
+        internal void Update(M_barang m_Barang, string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Insert(M_barang m_Barang)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Insert(M_transaksi m_t)
+        {
+            throw new NotImplementedException();
         }
     }
 }
